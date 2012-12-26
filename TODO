@@ -1,5 +1,7 @@
-* Readme
-* Renderer for model instances
-* Location initializer for locations connectioned to model instances.
+* Fix bugs
+* Change superclass/mixin to have arrow to superclass or mixin
 * specs
-
+* release gem
+* Traversing model instances
+  * Location initializer for locations connectioned to model instances.
+  * Renderer for model instances
