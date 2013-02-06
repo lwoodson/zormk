@@ -34,8 +34,13 @@ module Zormk
     end
 
     def one_endpoint
+      to_char(0x25CF)
+    end
+
+    def no_ref
       to_char(0x25CB)
     end
+
   end
 
   module ActiveRecord
@@ -67,12 +72,12 @@ module Zormk
       key_info << "#{inheritance_arrowhead}#{solid_line} Superclass"
       key_info << "#{inheritance_arrowhead}#{dashed_line} Mixin"
       key_info << "  - Table column"
-      key_info << "#{dash}#{dash}#{one_endpoint} One-to-one (unidirectional to other)"
-      key_info << "#{one_endpoint}#{dash}#{dash} One-to-one (unidirectional to this)"
+      key_info << "#{no_ref}#{dash}#{one_endpoint} One-to-one (unidirectional to other)"
+      key_info << "#{one_endpoint}#{dash}#{no_ref} One-to-one (unidirectional to this)"
       key_info << "#{one_endpoint}#{dash}#{one_endpoint} One to one (bidirectional)"
-      key_info << "#{dash}#{dash}#{many_endpoint_right} One to many (unidirectional)"
+      key_info << "#{no_ref}#{dash}#{many_endpoint_right} One to many (unidirectional)"
       key_info << "#{one_endpoint}#{dash}#{many_endpoint_right} One to many (bidirectional)"
-      key_info << "#{many_endpoint_left}#{dash}#{dash} Many to one (unidirectional)"
+      key_info << "#{many_endpoint_left}#{dash}#{no_ref} Many to one (unidirectional)"
       key_info << "#{many_endpoint_left}#{dash}#{one_endpoint} Many to one (bidirectional)"
       key_info << "#{many_endpoint_left}#{dash}#{many_endpoint_right} Many to many (bidirectional)"
     end
@@ -169,7 +174,7 @@ module Zormk
       }
 
       def self.render_association(to, from)
-        "#{FROM_ASSOCIATIONS[from] || dash}#{dash}#{TO_ASSOCIATIONS[to] || dash}"
+        "#{FROM_ASSOCIATIONS[from] || no_ref}#{dash}#{TO_ASSOCIATIONS[to] || no_ref}"
       end
 
       def initialize(reflection)
