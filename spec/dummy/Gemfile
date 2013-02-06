@@ -25,10 +25,8 @@ gem 'jquery-rails'
 gem 'obj_mud'
 
 group :development do
-  gem 'wirble'
-  gem 'looksee'
-  gem 'awesome_print'
-  gem 'debugger'
+  gem 'pry-full'
+  gem 'pry-rails'
 end
 
 # To use ActiveModel has_secure_password

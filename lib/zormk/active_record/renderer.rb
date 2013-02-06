@@ -67,19 +67,6 @@ module Zormk
         end
       end
 
-      # key info for this renderer.
-      key_info = Zormk::Commands::KeyCommand.key_info
-      key_info << "#{inheritance_arrowhead}#{solid_line} Superclass"
-      key_info << "#{inheritance_arrowhead}#{dashed_line} Mixin"
-      key_info << "  - Table column"
-      key_info << "#{no_ref}#{dash}#{one_endpoint} One-to-one (unidirectional to other)"
-      key_info << "#{one_endpoint}#{dash}#{no_ref} One-to-one (unidirectional to this)"
-      key_info << "#{one_endpoint}#{dash}#{one_endpoint} One to one (bidirectional)"
-      key_info << "#{no_ref}#{dash}#{many_endpoint_right} One to many (unidirectional)"
-      key_info << "#{one_endpoint}#{dash}#{many_endpoint_right} One to many (bidirectional)"
-      key_info << "#{many_endpoint_left}#{dash}#{no_ref} Many to one (unidirectional)"
-      key_info << "#{many_endpoint_left}#{dash}#{one_endpoint} Many to one (bidirectional)"
-      key_info << "#{many_endpoint_left}#{dash}#{many_endpoint_right} Many to many (bidirectional)"
     end
 
     class ClassRenderer
